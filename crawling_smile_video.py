@@ -47,7 +47,7 @@ def get_search_result_count(ym, *keywords):
     else:
         print("get Count Status Error:[0]",str(req_cnt_dict["meta"]["status"]))
     
-    print(totalCount)
+    print(f"YEAR_MONTH:{ym}, TotalCount:{totalCount}")
 
     if totalCount == 0:
         return
@@ -62,15 +62,14 @@ def get_search_result_count(ym, *keywords):
         # description,lastCommentTimeはランキングは利用予定もないので取得対象外とする
         search_video_url = search_url
         search_video_url += "&fields=contentId,title,tags,categoryTags,viewCounter,mylistCounter,commentCounter,startTime,lastCommentTime,lengthSeconds"
-        search_video_url += "&_offset=" + str(i)
+        search_video_url += "&_offset=" + str(i * 100)
 
-        print(search_video_url)
+        #print(search_video_url)
         req_video = requests.get(search_video_url)
         req_video_json = json.dumps(req_video.json(), ensure_ascii=False)
         req_video_dict = json.loads(req_video_json)
 
         insert_json_data(ym, req_video_dict)
-
 
 # APIは連続で呼び出すと怒られるので少し待ったりするかも
 
