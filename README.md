@@ -20,7 +20,7 @@ Python3系をインストール後は、必要なライブラリをインスト�
     $ pip install python-dateutil
 
 # Usage
-基本的にそのまま利用可能です
+基本的にそのまま利用可能です
 
     $ python crawling_smile_video.py
 
