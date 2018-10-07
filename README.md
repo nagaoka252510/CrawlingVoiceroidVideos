@@ -1,7 +1,7 @@
 # CrawlingVoiceroidVideos
 
 # 説明
-ニコニコ動画 『スナップショット検索API v2』を利用し、「VOICEROID」を含むタグが登録されている動画を直近12ヶ月分取得し、sqliteに保存する
+ニコニコ動画 『スナップショット検索API v2』を利用し、「VOICEROID」を含むタグが登録されている動画を直近12ヶ月分取得し、sqliteに保存する
 
 # Dependency
 - Python3.7
