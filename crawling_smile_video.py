@@ -192,7 +192,7 @@ if __name__ == "__main__":
     start_ym = datetime.datetime.now()
     start_ym -= relativedelta(years=1)
     
-    for i in range(0,13):
+    for i in range(0,12):
         #print(start_ym.strftime("%Y%m"))
         start_ym += relativedelta(months=1)
         get_search_result_count(start_ym.strftime("%Y%m"), "VOICEROID")

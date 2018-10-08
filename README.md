@@ -26,6 +26,7 @@ Python3系をインストール後は、必要なライブラリをインスト�
 
 検索キーワードを変更したい場合は、コードを修正してください
 
+    # crawling_smile_video.py
     get_search_result_count(start_ym.strftime("%Y%m"), "VOICEROID")　# <-第2引数の検索キーワードを変更
 
 
