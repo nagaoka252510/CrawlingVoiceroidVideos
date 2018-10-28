@@ -1,7 +1,7 @@
 # CrawlingVoiceroidVideos
 
 # 説明
-ニコニコ動画 『スナップショット検索API v2』を利用し、「VOICEROID」を含むタグが登録されている動画を直近12ヶ月分取得し、sqliteに保存する
+ニコニコ動画 の『スナップショット検索API v2』を利用し、「VOICEROID」を含むタグが登録されている動画を直近12か月分取得し、sqliteに保存する
 
 # Dependency
 - Python3.7
@@ -16,8 +16,17 @@
 # Setup
 Python3系をインストール後は、必要なライブラリをインストールしてください
 
+```
     $ pip install requests
     $ pip install python-dateutil
+```
+
+2018.10.28
+dbファイルを保存するディレクトリを環境変数から取得するように変更しました
+必要に応じて変更したり、bash_profileに登録してください
+```
+export ENV_PY_DB_PATH=/var/hogehoge
+```
 
 # Usage
 基本的にそのまま利用可能です

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 import json
 import urllib.parse as urlparse
 import urllib
@@ -12,7 +13,8 @@ from dateutil.relativedelta import relativedelta
 # ニコニコ動画のコンテンツ検索を行う
 NICO_SNAPSHOT_SEARCH_API_END_POINT = "http://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search"
 TIME_STRING = "T00:00:00"
-DB_PATH = "./nico_video_info.db"
+ENV_PY_DB_PATH = "ENV_PY_DB_PATH"
+DEFAULT_DB_PATH = "./nico_video_info.db"
 # 指定条件：年月、タグ名
 
 def get_search_result_count(ym, *keywords):
@@ -81,7 +83,9 @@ def get_search_result_count(ym, *keywords):
 # 書込先テーブルのPKはcontentId
 # 履歴は持たない
 def insert_json_data(year_month, json_dict):
-    with contextlib.closing(sqlite3.connect(DB_PATH)) as con:
+    db_path = os.getenv(ENV_PY_DB_PATH, DEFAULT_DB_PATH)
+    #print(db_path)
+    with contextlib.closing(sqlite3.connect(db_path)) as con:
         cur = con.cursor()
 
         create_sql = "create table if not exists NICO_VIDEO_INFO ( \
